@@ -10,10 +10,14 @@ export const getBlogById = async (id: string) => {
     return data;
 }
 
-
 export const createBlog = async (
   payload: Partial<BlogPost>
 ): Promise<BlogPost> => {
-  const { data } = await api.post("/blogs", payload);
+  const blogWithDate = {
+    ...payload,
+    date: new Date().toISOString(),
+  };
+
+  const { data } = await api.post("/blogs", blogWithDate);
   return data;
 };

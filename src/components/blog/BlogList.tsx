@@ -2,7 +2,7 @@ import { useBlogs } from "@/features/blog/hooks";
 import type { BlogPost } from "@/types";
 import { cn, timeAgo } from "@/lib/utils";
 import React, { useEffect } from "react";
-import { BLOG_CATEGORY_ICON } from '@/constants'
+import { BLOG_CATEGORY_ICON } from "@/lib/utils";
 
 interface BlogListProps {
   onSelect: (id: string) => void;

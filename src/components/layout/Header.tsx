@@ -21,7 +21,6 @@ export const Header = () => {
             <div className="mx-auto max-w-7xl px-4">
                 <div className="flex h-16 items-center justify-between">
 
-                    {/* Logo */}
                     <Link to="/" className="flex items-center gap-2 font-semibold">
                         <img
                             src="/ca_monk_logo.jpg"
@@ -31,7 +30,6 @@ export const Header = () => {
                         <span className="text-base tracking-wide">CA MONK</span>
                     </Link>
 
-                    {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center gap-2">
                         {navItems.map(item => (
                             <NavLink
@@ -51,14 +49,15 @@ export const Header = () => {
                         ))}
                     </nav>
 
-                    {/* Desktop Action */}
                     <div className="hidden md:block">
-                        <Button className=" px-6">
-                            <Link to="/profile">Profile</Link>
+                        <Button onClick={() => setOpen(true)}>
+                            <Plus className="mr-2 h-4 w-4" />
+                            Create Blog
                         </Button>
                     </div>
 
-                    {/* Mobile Menu */}
+                    <CreateBlogModal open={open} onClose={() => setOpen(false)} />
+
                     <Sheet>
                         <SheetTrigger asChild>
                             <Button
@@ -73,12 +72,10 @@ export const Header = () => {
                         <SheetContent side="right" className="w-72 p-0 md:hidden">
                             <div className="flex flex-col h-full">
 
-                                {/* Mobile Header */}
                                 <div className="border-b px-6 py-4 font-semibold text-lg">
                                     Menu
                                 </div>
 
-                                {/* Mobile Nav */}
                                 <nav className="flex flex-col gap-2 px-4 py-6">
                                     {navItems.map(item => (
                                         <NavLink

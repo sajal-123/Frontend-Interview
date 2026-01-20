@@ -10,7 +10,6 @@ interface BlogViewerProps {
 export default function BlogViewer({ blogId }: BlogViewerProps) {
   const { data, isLoading } = useBlog(blogId);
 
-  // Skeleton loader component
   const Skeleton = () => (
     <article className="space-y-6 animate-pulse">
       {/* Cover Image */}
@@ -57,7 +56,6 @@ export default function BlogViewer({ blogId }: BlogViewerProps) {
         <Skeleton />
       ) : data ? (
         <article className="blog-content space-y-6">
-          {/* Cover Image */}
           {data.coverImage && (
             <img
               src={data.coverImage}
@@ -67,14 +65,11 @@ export default function BlogViewer({ blogId }: BlogViewerProps) {
             />
           )}
 
-          {/* Title */}
           <h1 className="h1 sm:text-4xl text-center font-bold">{data.title}</h1>
 
           <Button>Share Article</Button>
-          {/* Categories & Meta */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 rounded-lg bg-gray-100 p-4 text-small text-muted-foreground">
 
-            {/* Categories */}
             <section className="flex flex-col items-center gap-2 text-center">
               <h5 className="text-xs font-semibold uppercase tracking-wide">
                 Categories
@@ -91,7 +86,6 @@ export default function BlogViewer({ blogId }: BlogViewerProps) {
               </div>
             </section>
 
-            {/* Date */}
             <section className="flex flex-col items-center gap-2 text-center">
               <h5 className="text-xs font-semibold uppercase tracking-wide">
                 Date
@@ -110,14 +104,11 @@ export default function BlogViewer({ blogId }: BlogViewerProps) {
           </div>
 
 
-          {/* Description */}
           {data.description && (
             <p className="text-3xl font-semibold">{data.description}</p>
           )}
 
-          {/* Share Button */}
 
-          {/* Blog Content */}
           <div className="space-y-4">
             {data.content?.split("\n\n").map((block: any, idx: string) => {
               if (block.startsWith("- ")) {
@@ -144,10 +135,8 @@ export default function BlogViewer({ blogId }: BlogViewerProps) {
             })}
           </div>
 
-          {/* Author */}
           <div className="mt-6 flex items-center justify-between border-t pt-4">
 
-            {/* Author Info */}
             <div className="flex items-center gap-4">
               <img
                 src={data.author?.avatar ?? "/ca_monk_logo.jpg"}
@@ -166,7 +155,6 @@ export default function BlogViewer({ blogId }: BlogViewerProps) {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="flex items-center gap-3 text-muted-foreground">
               <button
                 className="rounded-md p-2 transition hover:bg-accent/20 hover:text-foreground"

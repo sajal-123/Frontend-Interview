@@ -1,5 +1,15 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import {
+  Landmark,
+  Code2,
+  Briefcase,
+  GraduationCap,
+  Scale,
+  Heart,
+} from "lucide-react";
+import { type BlogCategory } from "@/types";
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -24,3 +34,15 @@ export function timeAgo(dateString: string) {
   if (minutes > 0) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
   return `${seconds} second${seconds !== 1 ? "s" : ""} ago`;
 }
+
+export const BLOG_CATEGORY_ICON: Record<
+  BlogCategory,
+  React.ElementType
+> = {
+  FINANCE: Landmark,
+  TECH: Code2,
+  CAREER: Briefcase,
+  EDUCATION: GraduationCap,
+  REGULATIONS: Scale,
+  LIFESTYLE: Heart,
+};
